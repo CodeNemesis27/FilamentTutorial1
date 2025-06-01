@@ -74,7 +74,6 @@ class ProductResource extends Resource
                         TextInput::make('name')
                             ->required()
                             ->live(onBlur: true)
-                            ->unique()
                             ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                 if ($operation !== 'create') {
                                     return;
@@ -95,7 +94,6 @@ class ProductResource extends Resource
                     Section::make('Pricing and Inventory')->schema([
                         TextInput::make('sku')
                             ->label("SKU (Stock Keeping Unit)")
-                            ->unique()
                             ->required(),
 
                         TextInput::make('price')
